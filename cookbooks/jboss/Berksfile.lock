@@ -1,0 +1,27 @@
+DEPENDENCIES
+  jboss
+    path: .
+    metadata: true
+
+GRAPH
+  apt (4.0.2)
+    compat_resource (>= 12.10)
+  build-essential (6.0.5)
+    compat_resource (>= 12.14)
+    mingw (>= 1.1)
+    seven_zip (>= 0.0.0)
+  compat_resource (12.14.3)
+  homebrew (2.1.2)
+    build-essential (>= 2.1.2)
+  java (1.42.0)
+    apt (>= 0.0.0)
+    homebrew (>= 0.0.0)
+    windows (>= 0.0.0)
+  jboss (0.1.0)
+    java (>= 0.0.0)
+  mingw (1.2.4)
+    compat_resource (>= 0.0.0)
+    seven_zip (>= 0.0.0)
+  seven_zip (2.0.2)
+    windows (>= 1.2.2)
+  windows (2.0.2)
