@@ -1,0 +1,85 @@
+Node jboss exists, overwrite it? (Y/N) Client jboss exists, overwrite it? (Y/N) 192.168.56.20 -----> Existing Chef installation detected
+192.168.56.20 Starting the first Chef Client run...
+192.168.56.20 Starting Chef Client, version 12.14.60[0m
+192.168.56.20 resolving cookbooks for run list: ["jboss"][0m
+192.168.56.20 Synchronizing Cookbooks:[0m
+192.168.56.20   - jboss (0.1.0)[0m
+192.168.56.20   - java (8.102.1)[0m
+192.168.56.20   - apt (4.0.2)[0m
+192.168.56.20   - compat_resource (12.14.3)[0m
+192.168.56.20 Installing Cookbook Gems:[0m
+192.168.56.20 Compiling Cookbooks...[0m
+192.168.56.20 [2016-09-15T17:52:26+00:00] WARN: Chef::Provider::AptRepository already exists!  Cannot create deprecation class for LWRP provider apt_repository from cookbook apt
+192.168.56.20 [2016-09-15T17:52:26+00:00] WARN: AptRepository already exists!  Deprecation class overwrites Custom resource apt_repository from cookbook apt
+192.168.56.20 Converging 27 resources[0m
+192.168.56.20 Recipe: apt::default[0m
+192.168.56.20   * file[/var/lib/apt/periodic/update-success-stamp] action nothing (skipped due to action :nothing)
+192.168.56.20   * apt_update[periodic] action periodic (skipped due to only_if)
+192.168.56.20   * execute[apt-get update] action nothing (skipped due to action :nothing)
+192.168.56.20   * execute[apt-get autoremove] action nothing (skipped due to action :nothing)
+192.168.56.20   * execute[apt-get autoclean] action nothing (skipped due to action :nothing)
+192.168.56.20   * directory[/var/cache/local] action create (skipped due to only_if)
+192.168.56.20   * directory[/var/cache/local/preseeding] action create (skipped due to only_if)
+192.168.56.20   * template[/etc/apt/apt.conf.d/10recommends] action create (skipped due to only_if)
+192.168.56.20   * yum_package[apt-transport-https] action install (skipped due to only_if)
+192.168.56.20 Recipe: java::notify[0m
+192.168.56.20   * log[jdk-version-changed] action nothing (skipped due to action :nothing)
+192.168.56.20 Recipe: java::openjdk[0m
+192.168.56.20   * yum_package[java-1.6.0-openjdk] action install (up to date)
+192.168.56.20   * yum_package[java-1.6.0-openjdk-devel] action install (up to date)
+192.168.56.20   * java_alternatives[set-java-alternatives] action set (up to date)
+192.168.56.20 Recipe: java::set_java_home[0m
+192.168.56.20   * ruby_block[set-env-java-home] action run (skipped due to not_if)
+192.168.56.20   * directory[/etc/profile.d] action create (up to date)
+192.168.56.20   * template[/etc/profile.d/jdk.sh] action create (up to date)
+192.168.56.20 Recipe: jboss::default[0m
+192.168.56.20   * linux_user[jboss] action create (up to date)
+192.168.56.20   * remote_file[/opt/jboss-as-7.1.1.Final.zip] action create (up to date)
+192.168.56.20   * execute[jboss] action run (skipped due to not_if)
+192.168.56.20   * template[/opt/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml] action create
+192.168.56.20     [32m- update content in file /opt/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml from a02f6f to 359e91[0m
+192.168.56.20     [37m--- /opt/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml	2016-09-15 17:49:40.329737485 +0000[0m
+192.168.56.20     [37m+++ /opt/jboss-as-7.1.1.Final/standalone/configuration/.chef-standalone.xml20160915-10336-auyxj7	2016-09-15 17:52:30.817939033 +0000[0m
+192.168.56.20     [37m@@ -27,7 +27,6 @@[0m
+192.168.56.20     [37m         <extension module="org.jboss.as.webservices"/>[0m
+192.168.56.20     [37m         <extension module="org.jboss.as.weld"/>[0m
+192.168.56.20     [37m     </extensions>[0m
+192.168.56.20     [37m-[0m
+192.168.56.20     [37m     <management>[0m
+192.168.56.20     [37m         <security-realms>[0m
+192.168.56.20     [37m             <security-realm name="ManagementRealm">[0m
+192.168.56.20     [32m- change mode from '0664' to '0644'[0m
+192.168.56.20     [32m- restore selinux security context[0m
+192.168.56.20 [0m  * template[/opt/jboss-as-7.1.1.Final/bin/standalone.conf] action create (up to date)
+192.168.56.20   * template[/etc/jboss-as.conf] action create (up to date)
+192.168.56.20   * template[/etc/init.d/jboss7] action create (up to date)
+192.168.56.20   * remote_file[/tmp/app.zip] action create (up to date)
+192.168.56.20   * execute[app_install] action run
+192.168.56.20     [32m- execute unzip -jo app.zip -d /opt/jboss-as-7.1.1.Final/standalone/deployments/[0m
+192.168.56.20 [0m  * template[/opt/jboss-as-7.1.1.Final/standalone/deployments/hudson.xml] action create
+192.168.56.20     [32m- update content in file /opt/jboss-as-7.1.1.Final/standalone/deployments/hudson.xml from 0bed72 to 3a6bf8[0m
+192.168.56.20     [37m--- /opt/jboss-as-7.1.1.Final/standalone/deployments/hudson.xml	2014-01-16 15:35:44.000000000 +0000[0m
+192.168.56.20     [37m+++ /opt/jboss-as-7.1.1.Final/standalone/deployments/.chef-hudson.xml20160915-10336-14c00qc	2016-09-15 17:52:31.943501504 +0000[0m
+192.168.56.20     [37m@@ -12,13 +12,10 @@[0m
+192.168.56.20     [37m  <services>[0m
+192.168.56.20     [37m     <framework>[0m
+192.168.56.20     [37m       <type>Java EE</type>[0m
+192.168.56.20     [37m-       <engine>Tomcat-7.0.12</engine>[0m
+192.168.56.20     [37m+       <engine>jboss</engine>[0m
+192.168.56.20     [37m       <no-of-nodes>1</no-of-nodes>[0m
+192.168.56.20     [37m       <max-nodes>2</max-nodes>[0m
+192.168.56.20     [37m     </framework>[0m
+192.168.56.20     [37m-    <elastic-load-balancer>[0m
+192.168.56.20     [37m-      <engine>Nginx-1.2</engine>[0m
+192.168.56.20     [37m-    </elastic-load-balancer>[0m
+192.168.56.20     [37m   </services>[0m
+192.168.56.20     [37m </cumulogic-app>[0m
+192.168.56.20     [32m- change mode from '0644' to '0755'[0m
+192.168.56.20     [32m- restore selinux security context[0m
+192.168.56.20 [0m  * service[jboss7] action enable (up to date)
+192.168.56.20   * service[jboss7] action restart
+192.168.56.20     [32m- restart service service[jboss7][0m
+192.168.56.20 [0m[0m
+192.168.56.20 Running handlers:[0m
+192.168.56.20 Running handlers complete
+192.168.56.20 [0mChef Client finished, 4/28 resources updated in 20 seconds[0m
