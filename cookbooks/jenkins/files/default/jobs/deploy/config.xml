@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <se.diabol.jenkins.pipeline.PipelineProperty plugin="delivery-pipeline-plugin@0.9.12">
+      <taskName>deployment</taskName>
+      <stageName>deploy</stageName>
+    </se.diabol.jenkins.pipeline.PipelineProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo `date`&gt;/var/lib/tomcat/webapps/deploy-info.txt
+echo $BUILD_NUMBER&gt;/var/lib/tomcat/webapps/deploy-info.txt
+echo $JOB_NAME&gt;&gt;/var/lib/tomcat/webapps/deploy-info.txt
+cat /var/lib/tomcat/webapps/deploy-info.txt
+datetime=$(date)
+cat /var/lib/jenkins/workspace/build/src/main/resources/build-info.txt&gt;&gt;/var/lib/tomcat/webapps/deploy-info.txt
+
+mv -f /var/lib/jenkins/workspace/build/target/mnt-lab.war /usr/share/tomcat/webapps</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

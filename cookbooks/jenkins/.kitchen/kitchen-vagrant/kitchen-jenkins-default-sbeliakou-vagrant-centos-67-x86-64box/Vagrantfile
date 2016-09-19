@@ -1,0 +1,8 @@
+Vagrant.configure("2") do |c|
+  c.berkshelf.enabled = false if Vagrant.has_plugin?("vagrant-berkshelf")
+  c.vm.box = "sbeliakou-vagrant-centos-6.7-x86_64.box"
+  c.vm.hostname = "default-sbeliakou-vagrant-centos-67-x86-64box"
+  c.vm.synced_folder ".", "/vagrant", disabled: true
+  c.vm.provider :virtualbox do |p|
+  end
+end

@@ -1,0 +1,50 @@
+HTTP/1.1 302 Found
+Server: nginx/1.8.1
+Date: Mon, 19 Sep 2016 17:40:44 GMT
+Content-Length: 0
+Connection: keep-alive
+Location: http://192.168.56.20/jenkins/
+
+HTTP/1.1 200 OK
+Server: nginx/1.8.1
+Date: Mon, 19 Sep 2016 17:40:44 GMT
+Content-Type: text/html;charset=UTF-8
+Content-Length: 16633
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache,no-store,must-revalidate
+X-Hudson-Theme: default
+Set-Cookie: JSESSIONID.7f48c1d8=kr9okui6nijn1ew1cqb39c58e;Path=/jenkins;HttpOnly
+X-Hudson: 1.395
+X-Jenkins: 2.23
+X-Jenkins-Session: 774bb0a0
+X-Frame-Options: sameorigin
+X-Instance-Identity: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjTortZLwEo/4sV7Ils0ly/rpDBWDcl9gos2G58dlJYhBu9eBvRY5y20BDKzAwQHgrjpAPMqLxe5ase3Q8t+EuQOp8ojASQWNj+Q2oBz1PxeLvEkU6DbiVmk25BiaHdqZ+2Ozlw30gbEcf6nrszgouheUUkD6VU8zPZQO+t1zbpLG/dvHHq8at24BvxIsW9SFi7odr9m5XBHCm1/7rMCmJ2lDdjdWyRI6rNSs/YPV0h8dcPScw7ms319J2AugY8VRSPACrl2EAM7m1P1dVveITRVMxwTWcc83YVEDVIiuqRlvcVCdyTDChTuEQYLB7A0GpgjlAsvzGx5kBYzRIAvcAQIDAQAB
+X-SSH-Endpoint: 192.168.56.20:37748
+
+HTTP/1.1 302 Found
+Server: nginx/1.8.1
+Date: Mon, 19 Sep 2016 17:40:49 GMT
+Content-Length: 0
+Connection: keep-alive
+Location: http://192.168.56.20/jenkins/
+
+HTTP/1.1 200 OK
+Server: nginx/1.8.1
+Date: Mon, 19 Sep 2016 17:40:49 GMT
+Content-Type: text/html;charset=UTF-8
+Content-Length: 16633
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache,no-store,must-revalidate
+X-Hudson-Theme: default
+Set-Cookie: JSESSIONID.7f48c1d8=1sgw2c2v06veu15d2u35imxs4z;Path=/jenkins;HttpOnly
+X-Hudson: 1.395
+X-Jenkins: 2.23
+X-Jenkins-Session: 774bb0a0
+X-Frame-Options: sameorigin
+X-Instance-Identity: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjTortZLwEo/4sV7Ils0ly/rpDBWDcl9gos2G58dlJYhBu9eBvRY5y20BDKzAwQHgrjpAPMqLxe5ase3Q8t+EuQOp8ojASQWNj+Q2oBz1PxeLvEkU6DbiVmk25BiaHdqZ+2Ozlw30gbEcf6nrszgouheUUkD6VU8zPZQO+t1zbpLG/dvHHq8at24BvxIsW9SFi7odr9m5XBHCm1/7rMCmJ2lDdjdWyRI6rNSs/YPV0h8dcPScw7ms319J2AugY8VRSPACrl2EAM7m1P1dVveITRVMxwTWcc83YVEDVIiuqRlvcVCdyTDChTuEQYLB7A0GpgjlAsvzGx5kBYzRIAvcAQIDAQAB
+X-SSH-Endpoint: 192.168.56.20:37748
+

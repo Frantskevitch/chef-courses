@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Cookbook Documentation
+  
+    &mdash; Documentation by YARD 0.9.5
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = null;
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="cookbooks_list_link"
+        href="cookbooks_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame" src="class_list.html"></iframe>
+
+      <div id="content">
+
+<div id="filecontents">
+  <h1>Chef Cookbooks Documentation</h1>
+  
+
+<h1>Deprecated</h1>
+
+<p>Use of this repository is deprecated. We recommend using the <code>chef generate repo</code> command that comes with <a href="http://downloads.chef.io/chef-dk/">ChefDK</a>.</p>
+
+<h1>Overview</h1>
+
+<p>Every Chef installation needs a Chef Repository. This is the place where cookbooks, roles, config files and other artifacts for managing systems with Chef will live. We strongly recommend storing this repository in a version control system such as Git and treat it like source code.</p>
+
+<p>While we prefer Git, and make this repository available via GitHub, you are welcome to download a tar or zip archive and use your favorite version control system to manage the code.</p>
+
+<h1>Repository Directories</h1>
+
+<p>This repository contains several directories, and each directory contains a README file that describes what it is for in greater detail, and how to use it for managing your systems with Chef.</p>
+
+<ul>
+<li><code>cookbooks/</code> - Cookbooks you download or create.</li>
+<li><code>data_bags/</code> - Store data bags and items in .json in the repository.</li>
+<li><code>roles/</code> - Store roles in .rb or .json in the repository.</li>
+<li><code>environments/</code> - Store environments in .rb or .json in the repository.</li>
+</ul>
+
+<h1>Configuration</h1>
+
+<p>The repository contains a knife configuration file.</p>
+
+<ul>
+<li>.chef/knife.rb</li>
+</ul>
+
+<p>The knife configuration file <code>.chef/knife.rb</code> is a repository specific configuration file for knife. If you&#39;re using Hosted Chef, you can download one for your organization from the management console. If you&#39;re using the Open Source Chef Server, you can generate a new one with <code>knife configure</code>. For more information about configuring Knife, see the Knife documentation.</p>
+
+<p><a href="https://docs.chef.io/knife.html">https://docs.chef.io/knife.html</a></p>
+
+<h1>Next Steps</h1>
+
+<p>Read the README file in each of the subdirectories for more information about what goes in those directories.</p>
+
+
+
+<h1>Cookbooks List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Cookbook</th>
+      <th>Description</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  
+    <tr class="r1">
+      <td><span class='object_link'><a href="chef/jenkins.html" title="chef::jenkins (cookbook)">jenkins</a></span></td>
+      <td>Installs/Configures jenkins</td>
+      <td>0.1.0</td>
+    </tr>
+    
+  
+  </tbody>
+</table>
+
+</div>
+</div>
+
+      <div id="footer">
+  Generated on Mon Sep 19 15:19:34 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.5 (ruby-1.9.3).
+</div>
+
+    </div>
+  </body>
+</html>

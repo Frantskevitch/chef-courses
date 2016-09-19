@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="US-ASCII">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Cookbook Documentation
+  
+    &mdash; Documentation by YARD 0.9.5
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="cookbooks_list_link"
+        href="cookbooks_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame" src="file_list.html"></iframe>
+
+      <div id="content">
+
+<div id="filecontents">
+  <h1>Chef Cookbooks Documentation</h1>
+  <div id='filecontents'><p>This directory contains the cookbooks used to configure systems in your infrastructure with Chef.</p>
+
+<p>Knife needs to be configured to know where the cookbooks are located with the <code>cookbook_path</code> setting. If this is not set, then several cookbook operations will fail to work properly.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_cookbook_path'>cookbook_path</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>./cookbooks</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+</code></pre>
+
+<p>This setting tells knife to look for the cookbooks directory in the present working directory. This means the knife cookbook subcommands need to be run in the <code>chef-repo</code> directory itself. To make sure that the cookbooks can be found elsewhere inside the repository, use an absolute path. This is a Ruby file, so something like the following can be used:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_current_dir'>current_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_cookbook_path'>cookbook_path</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_current_dir'>current_dir</span><span class='rbrace'>}</span><span class='tstring_content'>/../cookbooks</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+</code></pre>
+
+<p>Which will set <code>current_dir</code> to the location of the knife.rb file itself (e.g. <code>~/chef-repo/.chef/knife.rb</code>).</p>
+
+<p>Configure knife to use your preferred copyright holder, email contact and license. Add the following lines to <code>.chef/knife.rb</code>.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_cookbook_copyright'>cookbook_copyright</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Example, Com.</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_cookbook_email'>cookbook_email</span>     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cookbooks@example.com</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_cookbook_license'>cookbook_license</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>apachev2</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>Supported values for <code>cookbook_license</code> are &quot;apachev2&quot;, &quot;mit&quot;,&quot;gplv2&quot;,&quot;gplv3&quot;,  or &quot;none&quot;. These settings are used to prefill comments in the default recipe, and the corresponding values in the metadata.rb. You are free to change the the comments in those files.</p>
+
+<p>Create new cookbooks in this directory with Knife.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_knife'>knife</span> <span class='id identifier rubyid_cookbook'>cookbook</span> <span class='id identifier rubyid_create'>create</span> <span class='const'>COOKBOOK</span>
+</code></pre>
+
+<p>This will create all the cookbook directory components. You don&#39;t need to use them all, and can delete the ones you don&#39;t need. It also creates a README file, metadata.rb and default recipe.</p>
+
+<p>You can also download cookbooks directly from the Opscode Cookbook Site. There are two subcommands to help with this depending on what your preference is.</p>
+
+<p>The first and recommended method is to use a vendor branch if you&#39;re using Git. This is automatically handled with Knife.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_knife'>knife</span> <span class='id identifier rubyid_cookbook'>cookbook</span> <span class='id identifier rubyid_site'>site</span> <span class='id identifier rubyid_install'>install</span> <span class='const'>COOKBOOK</span>
+</code></pre>
+
+<p>This will:</p>
+
+<ul>
+<li>Download the cookbook tarball from cookbooks.opscode.com.</li>
+<li>Ensure its on the git master branch.</li>
+<li>Checks for an existing vendor branch, and creates if it doesn&#39;t.</li>
+<li>Checks out the vendor branch (chef-vendor-COOKBOOK).</li>
+<li>Removes the existing (old) version.</li>
+<li>Untars the cookbook tarball it downloaded in the first step.</li>
+<li>Adds the cookbook files to the git index and commits.</li>
+<li>Creates a tag for the version downloaded.</li>
+<li>Checks out the master branch again.</li>
+<li>Merges the cookbook into master.</li>
+<li>Repeats the above for all the cookbooks dependencies, downloading them from the community site</li>
+</ul>
+
+<p>The last step will ensure that any local changes or modifications you have made to the cookbook are preserved, so you can keep your changes through upstream updates.</p>
+
+<p>If you&#39;re not using Git, use the site download subcommand to download the tarball.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_knife'>knife</span> <span class='id identifier rubyid_cookbook'>cookbook</span> <span class='id identifier rubyid_site'>site</span> <span class='id identifier rubyid_download'>download</span> <span class='const'>COOKBOOK</span>
+</code></pre>
+
+<p>This creates the COOKBOOK.tar.gz from in the current directory (e.g., <code>~/chef-repo</code>). We recommend following a workflow similar to the above for your version control tool.</p>
+</div>
+
+<h1>Cookbooks List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Cookbook</th>
+      <th>Description</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  
+  
+    <tr class="r1">
+      <td><span class='object_link'><a href="chef/java_se.html" title="chef::java_se (cookbook)">java_se</a></span></td>
+      <td>Installs Oracle's Java SE JDK</td>
+      <td>8.102.1</td>
+    </tr>
+    
+  
+    <tr class="r2">
+      <td><span class='object_link'><a href="chef/jenkins.html" title="chef::jenkins (cookbook)">jenkins</a></span></td>
+      <td>Installs/Configures jenkins</td>
+      <td>0.1.0</td>
+    </tr>
+    
+  
+    <tr class="r1">
+      <td><span class='object_link'><a href="chef/nginx.html" title="chef::nginx (cookbook)">nginx</a></span></td>
+      <td>Installs/Configures nginx</td>
+      <td>0.1.0</td>
+    </tr>
+    
+  
+    <tr class="r2">
+      <td><span class='object_link'><a href="chef/tomcat.html" title="chef::tomcat (cookbook)">tomcat</a></span></td>
+      <td>Installs/Configures tomcat</td>
+      <td>0.1.0</td>
+    </tr>
+    
+  
+  </tbody>
+</table>
+
+</div>
+</div>
+
+      <div id="footer">
+  Generated on Mon Sep 19 13:01:39 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.5 (ruby-1.9.3).
+</div>
+
+    </div>
+  </body>
+</html>

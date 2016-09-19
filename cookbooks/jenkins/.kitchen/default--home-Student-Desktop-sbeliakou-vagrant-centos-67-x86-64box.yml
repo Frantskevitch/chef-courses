@@ -1,0 +1,6 @@
+---
+hostname: 127.0.0.1
+port: '2202'
+username: vagrant
+ssh_key: "/root/chef-repo/cookbooks/jenkins/.kitchen/kitchen-vagrant/kitchen-jenkins-default--home-Student-Desktop-sbeliakou-vagrant-centos-67-x86-64box/.vagrant/machines/default/virtualbox/private_key"
+last_action: create
